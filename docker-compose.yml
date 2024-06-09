@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  moviesapi:
+    image: ${DOCKER_REGISTRY-}moviesapi
+    build:
+      context: .
+      dockerfile: MoviesApi/Dockerfile
