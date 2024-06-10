@@ -2,7 +2,28 @@ version: '3.4'
 
 services:
   moviesapi:
+    container_name: MoviesApiContainer
     image: ${DOCKER_REGISTRY-}moviesapi
     build:
       context: .
       dockerfile: MoviesApi/Dockerfile
+    environment:
+        - DB_HOST=sqlserverdb
+        - DB_NAME=${DB_NAME}
+        - DB_USER=${DB_USER}
+        - DB_PASSWORD=${DB_PASSWORD}
+    depends_on:
+        - sqlserverdb
+    
+  sqlserverdb:
+    container_name: SqlServerContainer
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+        - 8002:1433
+    environment:
+        - ACCEPT_EULA=Y
+        - MSSQL_SA_PASSWORD=${DB_PASSWORD}
+    volumes:
+        - .sqlserverdb/data:/var/opt/mssql/data
+        - .sqlserverdb/log:/var/opt/mssql/log
+        - .sqlserverdb/secrets:/var/opt/mssql/secrets

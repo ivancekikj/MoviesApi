@@ -12,6 +12,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+connectionString = connectionString.Replace("{{Server}}", Environment.GetEnvironmentVariable("DB_HOST"))
+    .Replace("{{Database}}", Environment.GetEnvironmentVariable("DB_NAME"))
+    .Replace("{{UserId}}", Environment.GetEnvironmentVariable("DB_USER"))
+    .Replace("{{Password}}", Environment.GetEnvironmentVariable("DB_PASSWORD"));
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddControllersWithViews().AddNewtonsoftJson(options =>

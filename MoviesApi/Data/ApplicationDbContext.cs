@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
 using MoviesApi.Models;
 
 namespace MoviesApi.Data
@@ -11,6 +13,20 @@ namespace MoviesApi.Data
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
+            try
+            {
+                var creator = Database.GetService<IDatabaseCreator>() as RelationalDatabaseCreator;
+                if (creator != null)
+                {
+                    if (!creator.CanConnect())
+                        creator.Create();
+                    if (!creator.HasTables())
+                        creator.CreateTables();
+                }
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
