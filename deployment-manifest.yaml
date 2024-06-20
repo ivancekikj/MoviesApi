@@ -37,7 +37,7 @@ spec:
       - name: moviesapi_container
         image: ivancekikj/movies-api:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         env:
         - name: DB_NAME
           valueFrom:
