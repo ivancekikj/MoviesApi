@@ -10,8 +10,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kubernetes", "Kubernetes", "{D190BE85-CF14-4181-95E5-372417970627}"
 	ProjectSection(SolutionItems) = preProject
 		deployment-manifest.yaml = deployment-manifest.yaml
-		service-manifest.yaml = service-manifest.yaml
 		ingress-manifest.yaml = ingress-manifest.yaml
+		service-manifest.yaml = service-manifest.yaml
+		storage-manifest.yaml = storage-manifest.yaml
 	EndProjectSection
 EndProject
 Global
