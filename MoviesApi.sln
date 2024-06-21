@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kubernetes", "Kubernetes", 
 	ProjectSection(SolutionItems) = preProject
 		deployment-manifest.yaml = deployment-manifest.yaml
 		ingress-manifest.yaml = ingress-manifest.yaml
+		namespace-manifest.yaml = namespace-manifest.yaml
 		service-manifest.yaml = service-manifest.yaml
 		storage-manifest.yaml = storage-manifest.yaml
 	EndProjectSection
