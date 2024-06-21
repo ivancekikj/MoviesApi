@@ -43,7 +43,7 @@ namespace MoviesApi.Controllers
 
         // POST /<MoviesController>
         [HttpPost]
-        public async Task<IActionResult> Post([FromQuery] MovieDto model)
+        public async Task<IActionResult> Post([FromBody] MovieDto model)
         {
             Movie movie = new()
             {
@@ -61,7 +61,7 @@ namespace MoviesApi.Controllers
 
         // PUT /<MoviesController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(Guid id, [FromQuery] MovieDto model)
+        public async Task<IActionResult> Put(Guid id, [FromBody] MovieDto model)
         {
             Movie? movie = await _context.Movies.FindAsync(id);
             if (movie == null)
@@ -89,7 +89,7 @@ namespace MoviesApi.Controllers
         }
 
         [HttpPost("{id}/Genres")]
-        public async Task<IActionResult> AddGenre(Guid id, [FromQuery] Guid genreId)
+        public async Task<IActionResult> AddGenre(Guid id, [FromBody] Guid genreId)
         {
             Movie? movie = await _context.Movies.Include(m => m.Genres)
                 .Include(m => m.Directors)
@@ -122,7 +122,7 @@ namespace MoviesApi.Controllers
 
 
         [HttpPost("{id}/Directors")]
-        public async Task<IActionResult> AddDirector(Guid id, [FromQuery] Guid directorId)
+        public async Task<IActionResult> AddDirector(Guid id, [FromBody] Guid directorId)
         {
             Movie? movie = await _context.Movies.Include(m => m.Genres)
                 .Include(m => m.Directors)

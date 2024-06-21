@@ -42,7 +42,7 @@ namespace MoviesApi.Controllers
 
         // POST /<DirectorsController>
         [HttpPost]
-        public async Task<IActionResult> Post([FromQuery] DirectorDto model)
+        public async Task<IActionResult> Post([FromBody] DirectorDto model)
         {
             Director director = new()
             {
@@ -57,7 +57,7 @@ namespace MoviesApi.Controllers
 
         // PUT /<DirectorsController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(Guid id, [FromQuery] DirectorDto model)
+        public async Task<IActionResult> Put(Guid id, [FromBody] DirectorDto model)
         {
             Director? director = await _context.Directors.FindAsync(id);
             if (director == null)

@@ -41,7 +41,7 @@ namespace MoviesApi.Controllers
 
         // POST /<GenresController>
         [HttpPost]
-        public async Task<IActionResult> Post([FromQuery] GenreDto model)
+        public async Task<IActionResult> Post([FromBody] GenreDto model)
         {
             Genre genre = new()
             {
@@ -55,7 +55,7 @@ namespace MoviesApi.Controllers
 
         // PUT /<GenresController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(Guid id, [FromQuery] GenreDto model)
+        public async Task<IActionResult> Put(Guid id, [FromBody] GenreDto model)
         {
             Genre? genre = await _context.Genres.FindAsync(id);
             if (genre == null)
