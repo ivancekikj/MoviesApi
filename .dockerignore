@@ -15,7 +15,8 @@
 **/bin
 **/charts
 **/docker-compose*
-**/*-manifest.yaml
+Kubernetes
+.sqlserverdb
 **/Dockerfile*
 **/node_modules
 **/npm-debug.log

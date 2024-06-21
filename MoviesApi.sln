@@ -7,15 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesApi", "MoviesApi\Movi
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{FB8F0E34-92CC-402C-B2CD-12F39A386EC4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kubernetes", "Kubernetes", "{D190BE85-CF14-4181-95E5-372417970627}"
-	ProjectSection(SolutionItems) = preProject
-		deployment-manifest.yaml = deployment-manifest.yaml
-		ingress-manifest.yaml = ingress-manifest.yaml
-		namespace-manifest.yaml = namespace-manifest.yaml
-		service-manifest.yaml = service-manifest.yaml
-		storage-manifest.yaml = storage-manifest.yaml
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
